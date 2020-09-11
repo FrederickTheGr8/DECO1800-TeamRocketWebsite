@@ -1,0 +1,32 @@
+header.landingpage {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: url("../images/koalabg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  header.landingpage h1 {
+    font-size: 2.25rem;
+  }
+  @media (min-width: 992px) {
+    header.landingpage {
+      height: 100vh;
+      min-height: 40rem;
+      padding-top: 4.5rem;
+      padding-bottom: 0;
+    }
+    header.landingpage p {
+      font-size: 1.15rem;
+    }
+    header.landingpage h1 {
+      font-size: 3rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    header.landingpage h1 {
+      font-size: 3.5rem;
+    }
+  }
