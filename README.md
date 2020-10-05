@@ -1,6 +1,6 @@
 # TeamRocketWebsite
 
-What's that animal trivia game
+Who's that animal trivia game
  
 Select a random animal from the dataset and fetch its image.
 User has to guess out of three answers which one is correct.

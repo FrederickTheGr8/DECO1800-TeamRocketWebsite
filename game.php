@@ -37,21 +37,21 @@
     </div>-->
     <div class="col-sm-8 text-left"> 
       <h1>What's that QLD Animal?</h1>
-      <img src="images/littleredflyingfox.png">
+      <img id = "animalImage" src="images/littleredflyingfox.png">
       <hr>
       <h3>Test</h3>
       <p>Lorem ipsum...</p>
     </div>
     <div class="col-sm-4 sidenav">
-      <div class="well">
-        <p>Answer 1</p>
-      </div>
-      <div class="well">
-        <p>Answer 2</p>
-      </div>
-	  <div class="well">
-        <p>Answer 3</p>
-      </div>
+      <button type="button" id = "button1" class="btn btn-primary">
+      1
+      </button>
+      <button type="button" id = "button2" class="btn btn-primary">
+      2
+      </button>
+      <button type="button" id = "button3" class="btn btn-primary">
+      3
+      </button>
     </div>
   </div>
 </div>
