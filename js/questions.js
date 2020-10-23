@@ -24,18 +24,137 @@ function getRandomAnimalIDs(){
     return questions;
 }
 
-// does not work
 function getAnimalByID(id){
-    $( document ).ready(function() {
+
         $.ajax({
-        //Retrieves and logs into local storage all different species of Mammals
-        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + "814",
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        async: false,
+        dataType: "json",
         success: function(result){
-            localStorage.setItem("AnimalData", JSON.stringify(result));
-            console.log(result);
-        }})});
+            //localStorage.setItem("AnimalData", JSON.stringify(result));
+            localStorage = result;
+            console.log(result); 
+        }});
         return localStorage;
 }
+
+function getAnimalClassName(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            className = result.Species.ClassName;
+        }});
+        return className;
+    }
+
+function getAnimalFamilyName(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){;
+            familyName = result.Species.FamilyName;
+        }});
+        return familyName;
+    }
+
+function getAnimalFamilyCommonName(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){;
+            familyCommonName = result.Species.FamilyCommonName;
+        }});
+        return familyCommonName;
+    }
+
+function getAnimalAcceptedCommonName(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            acceptedCommonName = result.Species.AcceptedCommonName;
+        }});
+        return acceptedCommonName;
+    }
+
+function getAnimalPestStatus(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            pestStatus = result.Species.PestStatus;
+        }});
+        return pestStatus;
+    }    
+
+function getAnimalEndemicity(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            endemicity = result.Species.Endemicity;
+        }});
+        return endemicity;
+    }
+
+function getAnimalConservationStatus(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            conservationStatus = result.Species.ConservationStatus.NCAStatus;
+        }});
+        return conservationStatus;
+    }
+
+function getAnimalScientificName(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            scientificName = result.Species.ScientificName;
+        }});
+        return scientificName;
+    }
+
+function getAnimalImageURL(id){
+    $.ajax({
+        type: "POST",
+        url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+        //might want async false if it is not getting info quick enough?
+        async: false,
+        dataType: "json",
+        success: function(result){
+            animalImageURL = result.Species.Image.URL;
+        }});
+        return animalImageURL;
+    }
 
 function randomNumber(num) {
     var randnum = Math.floor(Math.random() * num);
@@ -45,30 +164,3 @@ function randomNumber(num) {
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
-
-/* need to add the functionality here so that it actually gives a random question to a random button 
-
-document.getElementById("animalImage").src = "hackanm.gif";
-ocument.getElementById("button1").innerText = "blah";
-
-
-function iterateRecords (data) {
-    $.each(data["Class"],function(){
-        console.log(this)
-    });
-}
-
-const numbers = (626, 628, 454) 
-
-var number 
-
-$( document ).ready(function() {
-    $.ajax({
-    //Retrieves and logs into local storage all different species of Mammals
-    url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + "814",
-    success: function(result){
-        localStorage.setItem("AnimalData", JSON.stringify(result));
-        console.log(result);
-    }})});
-
-    */
