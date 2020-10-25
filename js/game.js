@@ -1,4 +1,3 @@
-$(document).ready(function () {
     var rightAnswers = 0;
     var wrongAnswers = 0;
     var unansweredQuestions = 0;
@@ -10,19 +9,20 @@ $(document).ready(function () {
     var right;
 
     const animals = [1068, 716, 838, 1089, 78, 469, 901, 860, 877, 552, 800, 885,
-                831, 1125, 1767, 1087, 29185, 584, 37, 104, 1032, 1055, 1732,
-                1193, 1955, 1284, 1812, 19177, 714, 814];
+                831, 1125, 1767, 1087, 584, 37, 104, 1032, 1055, 1732,
+                1193, 1955, 1284, 1812, 19177, 814, 1191, 885, 1662, 811, 1973, 1165, 857, 466, 536, 541, 519, 520, 18153, 1916, 1694, 19185];
+
+    var cloneAnimals = [...animals];
 
     //  Returns an array of three random animal IDs, no duplicates.
     function getRandomAnimalIDs(){
         questions = [];
-        var cloneAnimals = [...animals];
 
         randnum = randomNumber(cloneAnimals.length - 1);
         var question1 = cloneAnimals[randnum];
         cloneAnimals.splice(randnum, 1);
         randnum = randomNumber(cloneAnimals.length - 1);
-        var question2 = cloneAnißmals[randnum];
+        var question2 = cloneAnimals[randnum];
         cloneAnimals.splice(randnum, 1);
         randnum = randomNumber(cloneAnimals.length - 1);
         var question3 = cloneAnimals[randnum];
@@ -164,7 +164,12 @@ $(document).ready(function () {
             async: false,
             dataType: "json",
             success: function(result){
-                animalImageURL = result.Species.Image.URL;
+                if (Array.isArray(result.Species.Image)){
+                    animalImageURL = result.Species.Image[0].URL;
+                }
+                else {
+                    animalImageURL = result.Species.Image.URL;
+                }
             }});
             return animalImageURL;
     }
@@ -180,6 +185,7 @@ $(document).ready(function () {
 
     function startGame() {
         console.log("Game started");
+        var cloneAnimals = [...animals];
         //$('.start-button').remove();
         rightAnswers = 0;
         wrongAnswers = 0;
@@ -196,38 +202,48 @@ $(document).ready(function () {
         }
 
         questions = getRandomAnimalIDs();
-
         right = questions[questions.length - 1];
+
+        const index = cloneAnimals.indexOf(right);
+        //Removes id out of cloned animal array
+        if (index > -1) {
+            cloneAnimals.splice(index, 1);
+        }
+
         wrong1 = questions[questions.length - 2];
         wrong2 = questions[questions.length - 3];
 
         var imageURL = getAnimalImageURL(right);
+        console.log(imageURL);
+        document.getElementById("imageURL").src = imageURL;
         $('.imageURL').html(imageURL);
 
         var rightCommonName = getAnimalAcceptedCommonName(right);
+        console.log(rightCommonName);
         var wrong1CommonName = getAnimalAcceptedCommonName(wrong1);
         var wrong2CommonName = getAnimalAcceptedCommonName(wrong2);
         var nameArray = [rightCommonName, wrong1CommonName, wrong2CommonName];
         var rightCommonNameNum;
         shuffle(nameArray);
 
-        for(var i = 0; nameArray.length; i++){
-            $('.animal' + i).html(nameArray[i]);
+        for(var i = 0; i < nameArray.length; i++){
+            $('.guess' + (i+1)).html(nameArray[i]);
+            document.getElementById('guess'+ (i+1)).innerHTML = nameArray[i];
 
             if (nameArray[i] == rightCommonName){
                 rightCommonNameNum = i;
             }
         }
 
-        $("h4").click(function () {
+        $("button").click(function () {
             var id = $(this).attr('id');
             if (id === rightCommonNameNum) {
                 answered = true; // stops the timer
-                $('.question').text("THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+                //$('.question').text("THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
                 rightAnswer();
             } else {
                 answered = true; //stops the timer
-                $('.question').text("YOU CHOSE: " + triviaGame[indexQandA].answer[id] + ".....HOWEVER THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+                //$('.question').text("YOU CHOSE: " + triviaGame[indexQandA].answer[id] + ".....HOWEVER THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
                 wrongAnswer();
             }
         });
@@ -237,13 +253,13 @@ $(document).ready(function () {
         if (timeRemaining === 0) {
             answered = true;
             clearInterval(interval);
-            $('.question').text("THE CORRECT ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+            // show correct answer here (popupwindow)
             unAnswered();
         } else if (answered === true) {
             clearInterval(interval);
-        } else {
-            timeRemaining--;
-            $('.timeRemaining').text('YOU HAVE ' + timeRemaining + ' SECONDS TO CHOOSE');
+            } else {
+                timeRemaining--;
+                $('.timeRemaining').text('YOU HAVE ' + timeRemaining + ' SECONDS TO CHOOSE');
         }
     }
 
@@ -252,7 +268,7 @@ $(document).ready(function () {
         $('.timeRemaining').text("YOU HAVE ANSWERED CORRECTLY!").css({
             'color': '#3D414F'
         });
-        resetRound();
+        //perform popupwindow
     }
 
     function wrongAnswer() {
@@ -260,20 +276,17 @@ $(document).ready(function () {
         $('.timeRemaining').text("YOU HAVE ANSWERED INCORRECTLY!").css({
             'color': '#3D414F'
         });
-        resetRound();
-
+        //perform popupwindow
     }
-
     function unAnswered() {
         unansweredQuestions++;
         $('.timeRemaining').text("YOU FAILED TO CHOOSE AN ANSWER").css({
             'color': '#3D414F'
         });
-        resetRound();
+        //perform popupwindow
     }
 
     function resetRound() {
-        $('.answersAll').remove();
         $('.answers').append('<img class=answerImage width="150" height="150" src="' + triviaGame[indexQandA].image + ' ">'); // adds answer image
         indexQuestion++; // increments index which will load next question when loadQandA() is called again
         if (indexQuestion < maxQuestions) {
@@ -301,5 +314,3 @@ $(document).ready(function () {
         startGame();
 
     });
-
-})
