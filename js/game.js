@@ -1,0 +1,305 @@
+$(document).ready(function () {
+    var rightAnswers = 0;
+    var wrongAnswers = 0;
+    var unansweredQuestions = 0;
+    var timeRemaining = 30;
+    var indexQuestion = 0;
+    const maxQuestions = 6;
+    var interval;
+    var answered = false;
+    var right;
+
+    const animals = [1068, 716, 838, 1089, 78, 469, 901, 860, 877, 552, 800, 885,
+                831, 1125, 1767, 1087, 29185, 584, 37, 104, 1032, 1055, 1732,
+                1193, 1955, 1284, 1812, 19177, 714, 814];
+
+    //  Returns an array of three random animal IDs, no duplicates.
+    function getRandomAnimalIDs(){
+        questions = [];
+        var cloneAnimals = [...animals];
+
+        randnum = randomNumber(cloneAnimals.length - 1);
+        var question1 = cloneAnimals[randnum];
+        cloneAnimals.splice(randnum, 1);
+        randnum = randomNumber(cloneAnimals.length - 1);
+        var question2 = cloneAnißmals[randnum];
+        cloneAnimals.splice(randnum, 1);
+        randnum = randomNumber(cloneAnimals.length - 1);
+        var question3 = cloneAnimals[randnum];
+
+        questions.push(question1);
+        questions.push(question2);
+        questions.push(question3);
+        shuffle(questions);
+        console.log(questions);
+        return questions;
+    }
+
+    function getAnimalByID(id){
+
+            $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            async: false,
+            dataType: "json",
+            success: function(result){
+                //localStorage.setItem("AnimalData", JSON.stringify(result));
+                localStorage = result;
+                console.log(result); 
+            }});
+            return localStorage;
+    }
+
+    function getAnimalClassName(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                className = result.Species.ClassName;
+            }});
+            return className;
+    }
+
+    function getAnimalFamilyName(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){;
+                familyName = result.Species.FamilyName;
+            }});
+            return familyName;
+    }
+
+    function getAnimalFamilyCommonName(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){;
+                familyCommonName = result.Species.FamilyCommonName;
+            }});
+            return familyCommonName;
+    }
+
+    function getAnimalAcceptedCommonName(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                acceptedCommonName = result.Species.AcceptedCommonName;
+            }});
+            return acceptedCommonName;
+    }
+
+    function getAnimalPestStatus(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                pestStatus = result.Species.PestStatus;
+            }});
+            return pestStatus;
+        }    
+
+    function getAnimalEndemicity(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                endemicity = result.Species.Endemicity;
+            }});
+            return endemicity;
+    }
+
+
+
+    function getAnimalConservationStatus(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                conservationStatus = result.Species.ConservationStatus.NCAStatus;
+            }});
+            return conservationStatus;
+    }
+
+    function getAnimalScientificName(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                scientificName = result.Species.ScientificName;
+            }});
+            return scientificName;
+    }
+
+    function getAnimalImageURL(id){
+        $.ajax({
+            type: "POST",
+            url:"https://apps.des.qld.gov.au/species/?op=getspeciesbyid&taxonid=" + id,
+            //might want async false if it is not getting info quick enough?
+            async: false,
+            dataType: "json",
+            success: function(result){
+                animalImageURL = result.Species.Image.URL;
+            }});
+            return animalImageURL;
+    }
+
+    function randomNumber(num) {
+        var randnum = Math.floor(Math.random() * num);
+        return randnum;
+    }
+
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+
+    function startGame() {
+        console.log("Game started");
+        //$('.start-button').remove();
+        rightAnswers = 0;
+        wrongAnswers = 0;
+        unansweredQuestions = 0;
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        answered = false; // will allow timeRemaining to be pushed back to <h5> after round reset....else statement in function timer()
+        timeRemaining = 30;
+        interval = setInterval(timer, 1000);
+        if (answered === false) {
+            timer();
+        }
+
+        questions = getRandomAnimalIDs();
+
+        right = questions[questions.length - 1];
+        wrong1 = questions[questions.length - 2];
+        wrong2 = questions[questions.length - 3];
+
+        var imageURL = getAnimalImageURL(right);
+        $('.imageURL').html(imageURL);
+
+        var rightCommonName = getAnimalAcceptedCommonName(right);
+        var wrong1CommonName = getAnimalAcceptedCommonName(wrong1);
+        var wrong2CommonName = getAnimalAcceptedCommonName(wrong2);
+        var nameArray = [rightCommonName, wrong1CommonName, wrong2CommonName];
+        var rightCommonNameNum;
+        shuffle(nameArray);
+
+        for(var i = 0; nameArray.length; i++){
+            $('.animal' + i).html(nameArray[i]);
+
+            if (nameArray[i] == rightCommonName){
+                rightCommonNameNum = i;
+            }
+        }
+
+        $("h4").click(function () {
+            var id = $(this).attr('id');
+            if (id === rightCommonNameNum) {
+                answered = true; // stops the timer
+                $('.question').text("THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+                rightAnswer();
+            } else {
+                answered = true; //stops the timer
+                $('.question').text("YOU CHOSE: " + triviaGame[indexQandA].answer[id] + ".....HOWEVER THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+                wrongAnswer();
+            }
+        });
+    }
+
+    function timer() {
+        if (timeRemaining === 0) {
+            answered = true;
+            clearInterval(interval);
+            $('.question').text("THE CORRECT ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
+            unAnswered();
+        } else if (answered === true) {
+            clearInterval(interval);
+        } else {
+            timeRemaining--;
+            $('.timeRemaining').text('YOU HAVE ' + timeRemaining + ' SECONDS TO CHOOSE');
+        }
+    }
+
+    function rightAnswer() {
+        rightAnswers++;
+        $('.timeRemaining').text("YOU HAVE ANSWERED CORRECTLY!").css({
+            'color': '#3D414F'
+        });
+        resetRound();
+    }
+
+    function wrongAnswer() {
+        wrongAnswers++;
+        $('.timeRemaining').text("YOU HAVE ANSWERED INCORRECTLY!").css({
+            'color': '#3D414F'
+        });
+        resetRound();
+
+    }
+
+    function unAnswered() {
+        unansweredQuestions++;
+        $('.timeRemaining').text("YOU FAILED TO CHOOSE AN ANSWER").css({
+            'color': '#3D414F'
+        });
+        resetRound();
+    }
+
+    function resetRound() {
+        $('.answersAll').remove();
+        $('.answers').append('<img class=answerImage width="150" height="150" src="' + triviaGame[indexQandA].image + ' ">'); // adds answer image
+        indexQuestion++; // increments index which will load next question when loadQandA() is called again
+        if (indexQuestion < maxQuestions) {
+            setTimeout(function () {
+                loadQuestion();
+                $('.answerImage').remove();
+            }, 5000); // removes answer image from previous round
+        } else {
+            setTimeout(function () {
+                $('.question').remove();
+                $('.timeRemaining').remove();
+                $('.answerImage').remove();
+                $('.answers').append('<h4 class= answersAll end>CORRECT ANSWERS: ' + correctAnswers + '</h4>');
+                $('.answers').append('<h4 class= answersAll end>INCORRECT ANSWERS: ' + incorrectAnswers + '</h4>');
+                $('.answers').append('<h4 class= answersAll end>UNANSWERED QUESTIONS: ' + unansweredQuestions + '</h4>');
+                setTimeout(function () {
+                    location.reload();
+                }, 7000);
+            }, 5000);
+        }
+    };
+
+    $('.startButton').on("click", function () {
+        $('.startButton');
+        startGame();
+
+    });
+
+})
