@@ -1,12 +1,13 @@
     var rightAnswers = 0;
     var wrongAnswers = 0;
     var unansweredQuestions = 0;
-    var timeRemaining = 30;
+    var timeRemaining = 10;
     var indexQuestion = 0;
     const maxQuestions = 5;
     var answerAnimalID;
     var interval;
     var answered = false;
+    var rightCommonNameNum;
     var right;
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
@@ -198,8 +199,9 @@
 
     function loadQuestion() {
         answered = false; // will allow timeRemaining to be pushed back to <h5> after round reset....else statement in function timer()
-        timeRemaining = 30;
         interval = setInterval(timer, 1000);
+        console.log("loadQuestion");
+        timeRemaining = 10;
         if (answered === false) {
             timer();
         }
@@ -227,10 +229,11 @@
         var wrong1CommonName = getAnimalAcceptedCommonName(wrong1);
         var wrong2CommonName = getAnimalAcceptedCommonName(wrong2);
         var nameArray = [rightCommonName, wrong1CommonName, wrong2CommonName];
-        var rightCommonNameNum;
+
         shuffle(nameArray);
 
         for(var i = 0; i < nameArray.length; i++){
+            console.log("i: " + i + ", " + nameArray[i])
             $('.guess' + (i+1)).html(nameArray[i]);
             document.getElementById('guess'+ (i+1)).innerHTML = nameArray[i];
 
@@ -238,21 +241,18 @@
                 rightCommonNameNum = i+1;
             }
         }
+    }
 
-        $("button").click(function () {
-            var buttonId= $(this).attr('id');
-            console.log('buttonId: ' + buttonId);
-            console.log('rightCommonNameNum: ' + rightCommonNameNum);;
-            if (buttonId === 'guess' + rightCommonNameNum) {
-                answered = true; // stops the timer
-                //$('.question').text("THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
-                rightAnswer();
-            } else {
-                answered = true; //stops the timer
-                //$('.question').text("YOU CHOSE: " + triviaGame[indexQandA].answer[id] + ".....HOWEVER THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
-                wrongAnswer();
-            }
-        });
+    function checkAnswerButton(buttonId) {
+        console.log('CheckAnswerButton: ' + buttonId + 'rightCommonNameNum: ' + rightCommonNameNum);
+        if (buttonId === 'guess' + rightCommonNameNum) {
+            answered = true; // stops the timer
+            rightAnswer();
+        }
+        else {
+            answered = true; //stops timer
+            wrongAnswer();
+        }
     }
 
     function timer() {
@@ -275,10 +275,10 @@
         });
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'CORRECT! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+        modalContent.innerHTML = 'CORRECT! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
 
         window.onclick = function(event) {
-
+            console.log("windowonclick rightanswer");
             if (event.target == modal) {
               modal.style.display = "none";
               resetRound();
@@ -294,7 +294,7 @@
         
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'Try again! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+        modalContent.innerHTML = 'Try again! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
 
         window.onclick = function(event) {
 
@@ -312,7 +312,7 @@
 
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'You didnt answer in time! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+        modalContent.innerHTML = 'You didnt answer in time! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
 
         window.onclick = function(event) {
 
@@ -345,9 +345,3 @@
             }
         }
     };
-
-    $('.startButton').on("click", function () {
-        $('.startButton');
-        startGame();
-
-    });

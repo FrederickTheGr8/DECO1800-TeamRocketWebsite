@@ -20,9 +20,9 @@
             <h2 class="game-title">Make Your Guess!</h2>
             <h5 class="timeRemaining"></h5>
             <div class="guess-options">
-                <button type="button" id = "guess1">Guess 1</button>
-                <button type="button" id = "guess2">Guess 2</button>
-                <button type="button" id = "guess3">Guess 3</button>
+                <button type="button" onclick = "checkAnswerButton('guess1')" id = "guess1">Guess 1</button>
+                <button type="button" onclick = "checkAnswerButton('guess2')" id = "guess2">Guess 2</button>
+                <button type="button" onclick = "checkAnswerButton('guess3')" id = "guess3">Guess 3</button>
             </div>
             <div class="game-homebutton">				
                 <a class="returnhome" href="index.html">Return Home</a>
@@ -30,15 +30,12 @@
 
         </div>
         <div id="myModal" class="modal">
-
             <!-- Modal content -->
             <div id ="myModalContent" class="modal-content">
               <span class="close">&times;</span>
               <p>Some text in the Modal..</p>
             </div>
-          
-          </div>
-          </div>
+        </div>
         <script src="js/game.js" type="text/javascript"></script>
         <script>
         startGame();
