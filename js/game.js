@@ -3,10 +3,13 @@
     var unansweredQuestions = 0;
     var timeRemaining = 30;
     var indexQuestion = 0;
-    const maxQuestions = 6;
+    const maxQuestions = 5;
+    var answerAnimalID;
     var interval;
     var answered = false;
     var right;
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
 
     const animals = [1068, 716, 838, 1089, 78, 469, 901, 860, 877, 552, 800, 885,
                 831, 1125, 1767, 1087, 584, 37, 104, 1032, 1055, 1732,
@@ -203,6 +206,7 @@
 
         questions = getRandomAnimalIDs();
         right = questions[questions.length - 1];
+        answerAnimalID = right;
 
         const index = cloneAnimals.indexOf(right);
         //Removes id out of cloned animal array
@@ -231,13 +235,15 @@
             document.getElementById('guess'+ (i+1)).innerHTML = nameArray[i];
 
             if (nameArray[i] == rightCommonName){
-                rightCommonNameNum = i;
+                rightCommonNameNum = i+1;
             }
         }
 
         $("button").click(function () {
-            var id = $(this).attr('id');
-            if (id === rightCommonNameNum) {
+            var buttonId= $(this).attr('id');
+            console.log('buttonId: ' + buttonId);
+            console.log('rightCommonNameNum: ' + rightCommonNameNum);;
+            if (buttonId === 'guess' + rightCommonNameNum) {
                 answered = true; // stops the timer
                 //$('.question').text("THE ANSWER IS: " + triviaGame[indexQandA].answer[correct]);
                 rightAnswer();
@@ -253,7 +259,6 @@
         if (timeRemaining === 0) {
             answered = true;
             clearInterval(interval);
-            // show correct answer here (popupwindow)
             unAnswered();
         } else if (answered === true) {
             clearInterval(interval);
@@ -268,7 +273,17 @@
         $('.timeRemaining').text("YOU HAVE ANSWERED CORRECTLY!").css({
             'color': '#3D414F'
         });
-        //perform popupwindow
+        modal.style.display = "block";
+        var modalContent = document.getElementById("myModalContent");
+        modalContent.innerHTML = 'CORRECT! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+
+        window.onclick = function(event) {
+
+            if (event.target == modal) {
+              modal.style.display = "none";
+              resetRound();
+            }
+        }
     }
 
     function wrongAnswer() {
@@ -276,36 +291,58 @@
         $('.timeRemaining').text("YOU HAVE ANSWERED INCORRECTLY!").css({
             'color': '#3D414F'
         });
-        //perform popupwindow
+        
+        modal.style.display = "block";
+        var modalContent = document.getElementById("myModalContent");
+        modalContent.innerHTML = 'Try again! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+
+        window.onclick = function(event) {
+
+            if (event.target == modal) {
+              modal.style.display = "none";
+              resetRound();
+            }
+        }
     }
     function unAnswered() {
         unansweredQuestions++;
         $('.timeRemaining').text("YOU FAILED TO CHOOSE AN ANSWER").css({
             'color': '#3D414F'
         });
-        //perform popupwindow
+
+        modal.style.display = "block";
+        var modalContent = document.getElementById("myModalContent");
+        modalContent.innerHTML = 'You didnt answer in time! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID);
+
+        window.onclick = function(event) {
+
+            if (event.target == modal) {
+              modal.style.display = "none";
+              resetRound();
+            }
+        }
     }
 
     function resetRound() {
-        $('.answers').append('<img class=answerImage width="150" height="150" src="' + triviaGame[indexQandA].image + ' ">'); // adds answer image
-        indexQuestion++; // increments index which will load next question when loadQandA() is called again
+        console.log('Resetting Round');
+        indexQuestion++; // increments question
         if (indexQuestion < maxQuestions) {
+            loadQuestion();
+            /*
             setTimeout(function () {
-                loadQuestion();
-                $('.answerImage').remove();
-            }, 5000); // removes answer image from previous round
+                
+            }, 5000); // removes answer image from previous round*/
         } else {
-            setTimeout(function () {
-                $('.question').remove();
-                $('.timeRemaining').remove();
-                $('.answerImage').remove();
-                $('.answers').append('<h4 class= answersAll end>CORRECT ANSWERS: ' + correctAnswers + '</h4>');
-                $('.answers').append('<h4 class= answersAll end>INCORRECT ANSWERS: ' + incorrectAnswers + '</h4>');
-                $('.answers').append('<h4 class= answersAll end>UNANSWERED QUESTIONS: ' + unansweredQuestions + '</h4>');
-                setTimeout(function () {
-                    location.reload();
-                }, 7000);
-            }, 5000);
+            modal.style.display = "block";
+            var modalContent = document.getElementById("myModalContent");
+            modalContent.innerHTML = 'Game Over || Right Answers: ' + rightAnswers + ' || Wrong Answers: ' + wrongAnswers + ' || Unanswered Questions: ' +  unansweredQuestions;
+
+            window.onclick = function(event) {
+
+                if (event.target == modal) {
+                window.location.href = 'index.html';
+                }
+            }
         }
     };
 

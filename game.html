@@ -6,7 +6,7 @@
    	<meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="js/game.js"></script>
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,6 +18,7 @@
         <h1 class="title">What's that QLD Animal?</h1>
         <div>
             <h2 class="game-title">Make Your Guess!</h2>
+            <h5 class="timeRemaining"></h5>
             <div class="guess-options">
                 <button type="button" id = "guess1">Guess 1</button>
                 <button type="button" id = "guess2">Guess 2</button>
@@ -28,10 +29,21 @@
             </div>
 
         </div>
-        <script>//getRandomAnimalIDs();</script>
-        <script></script>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div id ="myModalContent" class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          
+          </div>
+          </div>
+        <script src="js/game.js" type="text/javascript"></script>
         <script>
         startGame();
+
+
         /*test2= getAnimalByID(1767);
         test = getAnimalAcceptedCommonName(1767);
         console.log("AcceptedCommonName = " + test);
@@ -59,3 +71,4 @@
         */
         </script>
 </body>
+
