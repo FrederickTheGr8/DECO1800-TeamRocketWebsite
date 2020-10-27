@@ -275,7 +275,7 @@
         });
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'CORRECT! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
+        modalContent.innerHTML = 'CORRECT! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page to continue';
 
         window.onclick = function(event) {
             console.log("windowonclick rightanswer");
@@ -294,7 +294,7 @@
         
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'Try again! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
+        modalContent.innerHTML = 'Try again! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page to continue';
 
         window.onclick = function(event) {
 
@@ -312,7 +312,7 @@
 
         modal.style.display = "block";
         var modalContent = document.getElementById("myModalContent");
-        modalContent.innerHTML = 'You didnt answer in time! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page anywhere to continue';
+        modalContent.innerHTML = 'You didnt answer in time! || Class Name: ' +  getAnimalClassName(answerAnimalID) + ' || ' + 'Family Name: ' + getAnimalFamilyName(answerAnimalID) +' || ' + 'Common Name: ' + getAnimalAcceptedCommonName(answerAnimalID) + ' || ' + 'Pest Status: ' + getAnimalPestStatus(answerAnimalID) + ' || ' + 'Animal Endemicity: ' + getAnimalEndemicity(answerAnimalID) + ' || ' + 'Conservation Status: ' + getAnimalConservationStatus(answerAnimalID) + ' || ' + 'Scientific Name: ' + getAnimalScientificName(answerAnimalID) + ' || Click anywhere on the page to continue';
 
         window.onclick = function(event) {
 
