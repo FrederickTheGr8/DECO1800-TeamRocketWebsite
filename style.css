@@ -1,0 +1,823 @@
+.html {
+  font-family:sans-serif;
+}
+
+header.landingpage {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: url("../images/koalabg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  @media (min-width: 10px) {
+    header.landingpage {
+      height: 100vh;
+      min-height: 40rem;
+      padding-top: 4.5rem;
+      padding-bottom: 0;
+    }
+    header.landingpage p {
+      font-size: 1.15rem;
+    }
+  }
+
+  @media (min-width: 800px) {
+    header.landingpage h1 {
+      font-size: 300%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:80%;
+      margin-left:10%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    header.landingpage h1 {
+      font-size: 250%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:92%;
+      margin-left:4%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    header.landingpage h1 {
+      font-size: 250%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:100%;
+      margin-left:0%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
+    }
+  }
+
+
+  @media (min-width: 800px) {
+    .index-buttons {
+      font-size:200%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:60%;
+      margin-left:20%;
+      top:200px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:50px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .index-buttons {
+      font-size:150%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:70%;
+      margin-left:15%;
+      top:250px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:30px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .index-buttons {
+      font-size:150%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:70%;
+      margin-left:15%;
+      top:250px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:20px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:200%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:150%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:100%;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:200%;
+      top:80px;
+      width:80%;
+      margin-left:10%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:150%;
+      top:80px;
+      width:90%;
+      margin-left:5%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:100%;
+      top:80px;
+      width:100%;
+      margin-left:0%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
+  }
+
+  .rules-title {
+    color:white;
+    background-color:green;
+    text-align:center;
+    position:fixed;
+    top:0;
+    left:300px;
+    padding: 0px 100px;
+    opacity:90%;
+    font-size:200%;
+  }
+
+  .howtoplay-title {
+    color:white;
+    background-color:green;
+    position:fixed;
+    text-align:center;
+    font-size:200%;
+    top:130px;
+    left:200px;
+    right:200px;
+    height:500px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    opacity:90%;
+    padding:10px;
+  }
+
+  .how-to-play {
+    color:white;
+    background-color:green;
+    position:fixed;
+    width:800px;
+    left:325px;
+    top:250px;
+    font-size:200%;
+    border-style: solid;
+    border-color:black;
+    border-width:3px;
+    padding:0px;
+    text-align:center;
+    opacity:90%;
+  }
+
+  .howtoplay-startgame {
+    background-color:green;
+    text-align:center;
+    position:fixed;
+    top:550px;
+    left:800px;
+    padding:20px 20px;
+    color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    opacity:90%;
+  }
+
+  .howtoplay-returnhome {
+    background-color:green;
+    text-align:center;
+    position:fixed;
+    top:550px;
+    left:500px;
+    padding:20px 20px;
+    color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .howtoplay-buttons a {
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .howtoplay-buttons a:hover{
+    background-color:white;
+    color:green;
+    opacity:90%;
+  }
+
+
+  .guess-options {
+    background-color:green;
+    text-align:center;
+    padding: 0px;
+    position:fixed;
+    left:700px;
+    width:500px;
+    top:300px;
+    opacity:90%;
+    border-style:solid;
+    border-color:black;
+    border-width:2px;
+    font-size:200%;
+  }
+
+  .guess-options a {
+    color:white;
+    display:block;
+    padding:20px;
+    border-style:solid;
+    border-color:black;
+    text-decoration:none;
+    border-width:2px;
+  }
+
+  .guess-options a:hover {
+    color:green;
+    background-color:white;
+    text-decoration:none;
+  }
+
+  .returnhome {
+    background-color:green;
+    text-align:center;
+    position:fixed;
+    top:0px;
+    right:100px;
+    padding:20px 20px;
+    color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:2px;
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .game-homebutton a{
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .game-homebutton a:hover {
+    background-color:white;
+    color:green;
+    opacity:90%;
+  }
+
+  .incorrect-title {
+    color:white;
+    background-color:red;
+    position:fixed;
+    text-align:center;
+    font-size:200%;
+    top:130px;
+    left:200px;
+    right:200px;
+    height:500px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    opacity:90%;
+    padding:10px;
+  }
+  .incorrect-statement {
+    color:white;
+    background-color:red;
+    position:fixed;
+    width:500px;
+    left:700px;
+    top:300px;
+    font-size:100%;
+    border-style: solid;
+    border-color:black;
+    border-width:2px;
+    padding:0px;
+    text-align:center;
+    opacity:80%;
+    font-size:150%;
+  }
+
+  .correct-title {
+    color:white;
+    background-color:green;
+    position:fixed;
+    text-align:center;
+    font-size:200%;
+    top:130px;
+    left:200px;
+    right:200px;
+    height:500px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    opacity:90%;
+    padding:10px;
+  }
+  .correct-statement {
+    color:white;
+    background-color:green;
+    position:fixed;
+    width:500px;
+    left:700px;
+    top:300px;
+    font-size:100%;
+    border-style: solid;
+    border-color:black;
+    border-width:2px;
+    padding:0px;
+    text-align:center;
+    opacity:80%;
+    font-size:150%;
+  }
+
+  .continue-button-correct {
+    background-color:green;
+    text-align:center;
+    position:fixed;
+    top:550px;
+    right:300px;
+    padding:20px 20px;
+    color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:2px;
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .continue-correct a {
+    text-decoration:none;
+  }
+  .continue-correct a:hover {
+    color:green;
+    background-color:white;
+  }
+
+  .continue-button-incorrect {
+    background-color:red;
+    text-align:center;
+    position:fixed;
+    top:550px;
+    right:300px;
+    padding:20px 20px;
+    color:white;
+    border-style:solid;
+    border-color:black;
+    border-width:2px;
+    text-decoration:none;
+    opacity:90%;
+  }
+
+  .continue-incorrect a {
+    text-decoration:none;
+  }
+  .continue-incorrect a:hover {
+    color:red;
+    background-color:white;
+  }
+
+.animal-image {
+  position:fixed;
+  top:220px;
+  left:280px;
+  z-index:100;
+}
+
+.bush-image {
+  position:fixed;
+  top:300px;
+  left:220px;
+  z-index:100;
+}
+
+.congratulations {
+  color:white;
+  background-color:green;
+  position:fixed;
+  text-align:center;
+  font-size:300%;
+  top:130px;
+  left:200px;
+  right:200px;
+  height:500px;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  opacity:90%;
+  padding:10px;
+}
+
+.score {
+  color:white;
+  position:fixed;
+  top:220px;
+  left:570px;
+  font-size:180%;
+}
+
+.info-returnhome {
+  background-color:green;
+  text-align:center;
+  position:fixed;
+  top:550px;
+  left:600px;
+  padding:20px 20px;
+  color:white;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  text-decoration:none;
+  opacity:90%;
+}
+
+.info-returnhome1 {
+  background-color:green;
+  text-align:center;
+  position:fixed;
+  top:550px;
+  left:800px;
+  padding:20px 20px;
+  color:white;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  text-decoration:none;
+  opacity:90%;
+}
+
+.nextanimal {
+  background-color:green;
+  text-align:center;
+  position:fixed;
+  top:550px;
+  left:1000px;
+  padding:20px 20px;
+  color:white;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  text-decoration:none;
+  opacity:90%;
+}
+
+.prev-animal {
+  background-color:green;
+  text-align:center;
+  position:fixed;
+  top:550px;
+  left:800px;
+  padding:20px 20px;
+  color:white;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  text-decoration:none;
+  opacity:90%;
+}
+
+.info-button a{
+  text-decoration:none;
+  opacity:90%;
+}
+
+.info-button a:hover{
+  background-color:white;
+  color:green;
+  opacity:90%;
+}
+
+.koala-desc {
+  color:white;
+  background-color:green;
+  position:fixed;
+  width:500px;
+  left:700px;
+  top:250px;
+  font-size:100%;
+  border-style: solid;
+  border-color:black;
+  border-width:2px;
+  padding:0px;
+  text-align:center;
+  opacity:80%;
+  font-size:150%; 
+}
+
+.wallaby-desc {
+  color:white;
+  background-color:green;
+  position:fixed;
+  width:500px;
+  left:700px;
+  top:260px;
+  font-size:100%;
+  border-style: solid;
+  border-color:black;
+  border-width:2px;
+  padding:0px;
+  text-align:center;
+  opacity:80%;
+  font-size:150%;
+}
+
+.wombat-desc {
+  color:white;
+  background-color:green;
+  position:fixed;
+  width:500px;
+  left:700px;
+  top:240px;
+  font-size:100%;
+  border-style: solid;
+  border-color:black;
+  border-width:2px;
+  padding:0px;
+  text-align:center;
+  opacity:80%;
+  font-size:150%;
+}
+
+.imageURL {
+  max-width: 600px;
+  /*center image and limit size*/
+  display: block;
+  margin: 0 auto;
+}
+
+/* Timer */
+h5
+{
+  color: #343F38;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-top: 40px;
+  font-family: Abyssopelagic;
+}
+
+
+/* Questions */
+h3
+{
+  font-family: Abyssopelagic;
+  letter-spacing: 3px;
+  word-spacing: 4px;
+  margin-top: 45px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #61302F;
+  margin-bottom: 40px;
+  line-height: 40px;
+}
+
+#guess1 {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+
+
+#guess1:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+#guess2 {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+#guess2:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+#guess3 {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+#guess3:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.timeRemaining {
+  background-color:white;
+  font-style:bold;
+  font-size:130%;
+  position:fixed;
+  top:200px;
+  left:750px;
+  padding:10px 40px;
+}
+
+.time-left{
+  color:red;
+}
