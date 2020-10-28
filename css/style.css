@@ -1,3 +1,7 @@
+.html {
+  font-family:sans-serif;
+}
+
 header.landingpage {
     padding-top: 10rem;
     padding-bottom: calc(10rem - 4.5rem);
@@ -7,8 +11,8 @@ header.landingpage {
     background-attachment: scroll;
     background-size: cover;
   }
-  
-  @media (min-width: 992px) {
+
+  @media (min-width: 10px) {
     header.landingpage {
       height: 100vh;
       min-height: 40rem;
@@ -18,57 +22,244 @@ header.landingpage {
     header.landingpage p {
       font-size: 1.15rem;
     }
+  }
+
+  @media (min-width: 800px) {
     header.landingpage h1 {
-      font-size: 3rem;
+      font-size: 300%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:80%;
+      margin-left:10%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
     }
   }
-  @media (min-width: 1200px) {
+  
+  @media (max-width: 800px) {
     header.landingpage h1 {
-      font-size: 3.5rem;
+      font-size: 250%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:92%;
+      margin-left:4%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
     }
   }
 
-  .title {
-    color:white;
-    background-color:green;
-    text-align:center;
-    position:fixed;
-    top:0;
-    left:350px;
-    padding: 0px 100px;
-    opacity:90%;
-    font-size:300%;
+  @media (max-width: 500px) {
+    header.landingpage h1 {
+      font-size: 250%;
+      color:white;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:100%;
+      margin-left:0%;
+      top:0px;
+      margin-top:auto;
+      padding: 10px;
+    }
   }
 
-  .index-buttons {
-    background-color:green;
-    text-align:center;
-    padding: 0px;
-    position:fixed;
-    left:400px;
-    right:400px;
-    top:150px;
-    opacity:90%;
-    border-style:solid;
-    border-color:black;
-    border-width:2px;
-    font-size:200%;
+
+  @media (min-width: 800px) {
+    .index-buttons {
+      font-size:200%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:60%;
+      margin-left:20%;
+      top:200px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:50px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
   }
 
-  .index-buttons a {
-    color:white;
-    display:block;
-    padding:50px;
-    border-style:solid;
-    border-color:black;
-    text-decoration:none;
-    border-width:2px;
+  @media (max-width: 800px) {
+    .index-buttons {
+      font-size:150%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:70%;
+      margin-left:15%;
+      top:250px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:30px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
   }
 
-  .index-buttons a:hover {
-    color:green;
-    background-color:white;
-    text-decoration:none;
+  @media (max-width: 500px) {
+    .index-buttons {
+      font-size:150%;
+      background-color:green;
+      text-align:center;
+      position:fixed;
+      opacity:90%;
+      width:70%;
+      margin-left:15%;
+      top:250px;
+      border-style:solid;
+      border-color:black;
+      border-width:2px;
+    }
+    .index-buttons a {
+      color:white;
+      display:block;
+      padding:20px;
+      border-style:solid;
+      border-color:black;
+      text-decoration:none;
+      border-width:2px;
+    }
+    .index-buttons a:hover {
+      color:green;
+      background-color:white;
+      text-decoration:none;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:200%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:150%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .modal-content {
+      background-color: #fefefe;
+      position:fixed;
+      margin-left:47%;
+      margin-right:10%;
+      top:200px;
+      padding: 20px;
+      border: 1px solid #888;
+      color:green;
+      font-size:100%;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:200%;
+      top:80px;
+      width:80%;
+      margin-left:10%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:150%;
+      top:80px;
+      width:90%;
+      margin-left:5%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .game-title{
+      color:white;
+      background-color:green;
+      position:fixed;
+      text-align:center;
+      font-size:100%;
+      top:80px;
+      width:100%;
+      margin-left:0%;
+      height:500px;
+      border-style:solid;
+      border-color:black;
+      border-width:3px;
+      opacity:90%;
+      padding:10px;
+    }
   }
 
   .rules-title {
@@ -106,7 +297,7 @@ header.landingpage {
     position:fixed;
     width:800px;
     left:325px;
-    top:200px;
+    top:250px;
     font-size:200%;
     border-style: solid;
     border-color:black;
@@ -156,37 +347,20 @@ header.landingpage {
     opacity:90%;
   }
 
-  .game-title{
-    color:white;
-    background-color:green;
-    position:fixed;
-    text-align:center;
-    font-size:200%;
-    top:130px;
-    left:200px;
-    right:200px;
-    height:500px;
-    border-style:solid;
-    border-color:black;
-    border-width:3px;
-    opacity:90%;
-    padding:10px;
-  }
 
   .guess-options {
-    color:white;
     background-color:green;
+    text-align:center;
+    padding: 0px;
     position:fixed;
-    width:400px;
-    left:725px;
-    top:350px;
-    font-size:100%;
-    border-style: solid;
+    left:700px;
+    width:500px;
+    top:300px;
+    opacity:90%;
+    border-style:solid;
     border-color:black;
     border-width:2px;
-    padding:0px;
-    text-align:center;
-    opacity:90%;
+    font-size:200%;
   }
 
   .guess-options a {
@@ -540,35 +714,67 @@ h3
 
 #guess1 {
   background-color: #4CAF50; /* Green */
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+
+
+#guess1:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
 }
 
 #guess2 {
   background-color: #4CAF50; /* Green */
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+#guess2:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
 }
 
 #guess3 {
   background-color: #4CAF50; /* Green */
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-style:bold;
+  border-color:black;
+  border-width:2px;
+  width:500px;
+}
+
+#guess3:hover{
+  color:green;
+  background-color:white;
+  text-decoration:none;
+  cursor:pointer;
 }
 
 .modal {
@@ -585,14 +791,7 @@ h3
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+
 
 /* The Close Button */
 .close {
@@ -607,4 +806,18 @@ h3
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.timeRemaining {
+  background-color:white;
+  font-style:bold;
+  font-size:130%;
+  position:fixed;
+  top:200px;
+  left:750px;
+  padding:10px 40px;
+}
+
+.time-left{
+  color:red;
 }
